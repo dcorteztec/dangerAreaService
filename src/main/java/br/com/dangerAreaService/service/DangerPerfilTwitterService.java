@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.dangerAreaService.repository.DangerPerfilTwitterRepository;
 import br.com.dangerAreaService.service.interfaces.IDangerPerfilTwitterService;
-import br.com.dangerAreaService.vo.DangerPerfilTwitter;
+import br.com.dangerAreaService.vo.DangerPerfilTwitterVO;
 
 @Service
 public class DangerPerfilTwitterService implements IDangerPerfilTwitterService{
@@ -17,11 +17,11 @@ public class DangerPerfilTwitterService implements IDangerPerfilTwitterService{
 
 	@Override
 	public void salvar(String perfil) {
-	repository.save(new DangerPerfilTwitter(perfil));
+	repository.save(new DangerPerfilTwitterVO(perfil));
 	}
 
 	@Override
-	public List<DangerPerfilTwitter> findAll() {
+	public List<DangerPerfilTwitterVO> findAll() {
 		return repository.findAll();
 	}
 
@@ -31,7 +31,7 @@ public class DangerPerfilTwitterService implements IDangerPerfilTwitterService{
 	}
 
 	@Override
-	public DangerPerfilTwitter findById(String id) {
+	public DangerPerfilTwitterVO findById(String id) {
 		return repository.findOne(id);
 	}
 
