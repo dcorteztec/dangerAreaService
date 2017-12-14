@@ -34,6 +34,7 @@ public class DadosCelularSPVO implements Serializable{
 	private String solucao;
 	private String delegaciaNome;
 	private String delegaciaCircunscricao;
+	private String rubrica;
 	
 	public Long getId() {
 		return id;
@@ -172,6 +173,12 @@ public class DadosCelularSPVO implements Serializable{
 	}
 	public void setDelegaciaCircunscricao(String delegaciaCircunscricao) {
 		this.delegaciaCircunscricao = delegaciaCircunscricao;
+	}
+	public String getRubrica() {
+		return rubrica;
+	}
+	public void setRubrica(String rubrica) {
+		this.rubrica = rubrica;
 	}
 
 	
