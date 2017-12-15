@@ -2,41 +2,42 @@ package br.com.dangerAreaService.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.dangerAreaService.repository.IFurtoRouboCelularRepository;
 import br.com.dangerAreaService.service.interfaces.IDadosRouboFurtoCelularService;
 import br.com.dangerAreaService.vo.DadosCelularSPVO;
 
 @Service
 public class DadosRouboFurtoCelularService implements IDadosRouboFurtoCelularService{
 
+	@Autowired 
+    private IFurtoRouboCelularRepository repository;
+	
 	@Override
 	public void salvar(DadosCelularSPVO dadosCelularSPVO) {
-		// TODO Auto-generated method stub
-		
+		repository.save(dadosCelularSPVO);
 	}
 
 	@Override
 	public List<DadosCelularSPVO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return repository.findAll().size();
 	}
 
 	@Override
 	public DadosCelularSPVO findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		repository.delete(id);
 		
 	}
 

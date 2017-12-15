@@ -1,4 +1,4 @@
-package br.com.dangerAreaService.util;
+package br.com.dangerAreaService.service;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,13 +12,20 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import br.com.dangerAreaService.util.DataUtil;
 import br.com.dangerAreaService.vo.DadosCelularSPVO;
 
+@Service
 public class ReadExcelCelularRouboFurto {
 
 	private static final String dadosFurtos = "/dangerAreaService/dados_publicos_xls/DadosBO_2017_9(FURTO DE CELULAR).xls";
 
+	@Autowired
+	private DadosRouboFurtoCelularService dadosRouboFurtoCelularService;
+	
 	public List<DadosCelularSPVO> readExcelFurto() {
 		List<DadosCelularSPVO> dados = new ArrayList<DadosCelularSPVO>();
 		try {
@@ -84,6 +91,7 @@ public class ReadExcelCelularRouboFurto {
 					case 22:
 						dadosCelularSPVO.setRubrica(cell.getStringCellValue());	
 					}
+					dadosRouboFurtoCelularService.salvar(dadosCelularSPVO);
 				}
 			}
 			excelFile.close();
