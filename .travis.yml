@@ -5,7 +5,13 @@ before_install:
 - chmod +x mvnw
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+addons:
+  sonarcloud:
+    organization: "dcorteztec-github"
+    token:
+      secure: "bc1962b3b1859f0a0437cabce700cdf7e477299a"
 script:
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 - mvn package
 - mvn test
 after_success:
@@ -16,3 +22,7 @@ deploy:
   api_key: 359ac68a-bb1c-4fc8-87fe-48575d6143b6
   on:
      repo: dcorteztec/dangerAreaService
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
