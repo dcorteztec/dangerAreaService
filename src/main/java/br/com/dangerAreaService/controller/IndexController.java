@@ -10,7 +10,7 @@ public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getTexto() {
-        return "FUNFOU!!!!";
+        return "<h1>Bem vindo a transparência</h1>";
     }
 
 }
