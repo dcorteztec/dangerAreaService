@@ -114,6 +114,9 @@ public class ReadExcelCelularRouboFurto {
 						
 					case 18:
 						dadosCelularSPVO.setEspecie(celula.getStringCellValue());
+						
+					case 19:
+						dadosCelularSPVO.setRubrica(celula.getStringCellValue());
 					}
 					
 					dadosRouboFurtoCelularService.salvar(dadosCelularSPVO);
