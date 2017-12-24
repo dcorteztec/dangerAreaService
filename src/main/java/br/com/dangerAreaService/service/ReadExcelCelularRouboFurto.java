@@ -21,13 +21,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
+import br.com.dangerAreaService.util.Constantes;
 import br.com.dangerAreaService.util.DataUtil;
 import br.com.dangerAreaService.vo.DadosCelularSPVO;
 
 @Service
 public class ReadExcelCelularRouboFurto {
 
-	private static final String dadosFurtos = "/dados_publicos_xls/DadosBO_2017_11_MENOR.xls";
+	
 
 	@Autowired
 	private DadosRouboFurtoCelularService dadosRouboFurtoCelularService;
@@ -37,7 +38,7 @@ public class ReadExcelCelularRouboFurto {
 		List<DadosCelularSPVO> dados = new ArrayList<DadosCelularSPVO>();
 		try {
 			
-			File file = new ClassPathResource(dadosFurtos).getFile();
+			File file = new ClassPathResource(Constantes.DADOS_FURTOS_CELULAR).getFile();
 			
 			FileInputStream excelFile = new FileInputStream(file);
 			
@@ -58,71 +59,76 @@ public class ReadExcelCelularRouboFurto {
                     HSSFCell celula = (HSSFCell) celulas.next();
 					switch (celula.getColumnIndex()) {
 					case 0:
-						if(HSSFCell.CELL_TYPE_NUMERIC==celula.getCellType()) {
-							dadosCelularSPVO.setAnoBO(Integer.parseInt(celula.getStringCellValue()));
-						}
+						dadosCelularSPVO.setAnoBO(Integer.parseInt(celula.getStringCellValue()));
+						break;
 					case 1:
 						dadosCelularSPVO.setNumBO(Integer.parseInt(celula.getStringCellValue()));
-						
+						 break;
 					case 2:
 						dadosCelularSPVO.setDataBoEmitido(dataUtil.stringToDatehour(celula.getStringCellValue()));
-						
+						 break;
 					case 3:
 						dadosCelularSPVO.setDataOcorrencia(dataUtil.stringToDate(celula.getStringCellValue()));
-						
+						 break;
 					case 4:
 						dadosCelularSPVO.setPeriodoOcorrencia(celula.getStringCellValue());
-						
+						 break;
 					case 5:
 						dadosCelularSPVO.setDataComunicacao(dataUtil.stringToDatehour(celula.getStringCellValue()));
-					
+						 break;
 					case 6:
 						dadosCelularSPVO.setDataHoraElaboracao(dataUtil.stringToDatehour(celula.getStringCellValue()));
-						
+						 break;
 					case 7:
 						dadosCelularSPVO.setFlagrante(celula.getStringCellValue());
-						
+						 break;
 					case 8:
 						dadosCelularSPVO.setLogradouro(celula.getStringCellValue());
-					
+						 break;
 					case 9:
 						dadosCelularSPVO.setNumero(celula.getStringCellValue());
-					
+						 break;
 					case 10:
 						dadosCelularSPVO.setBairro(celula.getStringCellValue());
-						
+						 break;
 					case 11:
 						dadosCelularSPVO.setCidade(celula.getStringCellValue());
-						
+						 break;
 					case 12:
 						dadosCelularSPVO.setLatitude(Double.parseDouble(celula.getStringCellValue()));
-					
+						 break;
 					case 13:
 						dadosCelularSPVO.setLongitude(Double.parseDouble(celula.getStringCellValue()));
-						
+						 break;
 					case 14:
 						dadosCelularSPVO.setDescricaoLocal(celula.getStringCellValue());
-						
+						 break;
 					case 15:
 						dadosCelularSPVO.setSolucao(celula.getStringCellValue());
-						
+						 break;
 					case 16:
 						dadosCelularSPVO.setDelegaciaNome(celula.getStringCellValue());	
-						
+						 break;
 					case 17:
 						dadosCelularSPVO.setDelegaciaCircunscricao(celula.getStringCellValue());
+						 break;
 						
 					case 18:
 						dadosCelularSPVO.setEspecie(celula.getStringCellValue());
+						 break;
 						
 					case 19:
 						dadosCelularSPVO.setRubrica(celula.getStringCellValue());
+						 break;
+						
+					default: // default clause should be the last one
+					    break;
 					}
 					
 					dadosRouboFurtoCelularService.salvar(dadosCelularSPVO);
                 }
             }
-            workbook.close();
+           
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
