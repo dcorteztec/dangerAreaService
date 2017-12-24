@@ -17,6 +17,8 @@ public class DadosCelularSPVO implements Serializable{
 	private String numeroBoletim;
 	private Date dataBoIniciada;
 	private Date dataBoEmitido;
+	private Date dataComunicacao;
+	private Date dataHoraElaboracao;
 	private Date dataOcorrencia;
 	private String periodoOcorrencia;
 	private Date dataComunicado;
@@ -35,6 +37,8 @@ public class DadosCelularSPVO implements Serializable{
 	private String delegaciaNome;
 	private String delegaciaCircunscricao;
 	private String rubrica;
+	private String especie;
+	
 	
 	public Long getId() {
 		return id;
@@ -179,6 +183,24 @@ public class DadosCelularSPVO implements Serializable{
 	}
 	public void setRubrica(String rubrica) {
 		this.rubrica = rubrica;
+	}
+	public Date getDataComunicacao() {
+		return dataComunicacao;
+	}
+	public void setDataComunicacao(Date dataComunicacao) {
+		this.dataComunicacao = dataComunicacao;
+	}
+	public Date getDataHoraElaboracao() {
+		return dataHoraElaboracao;
+	}
+	public void setDataHoraElaboracao(Date dataHoraElaboracao) {
+		this.dataHoraElaboracao = dataHoraElaboracao;
+	}
+	public String getEspecie() {
+		return especie;
+	}
+	public void setEspecie(String especie) {
+		this.especie = especie;
 	}
 
 	

@@ -64,48 +64,58 @@ public class ReadExcelCelularRouboFurto {
 					case 1:
 						dadosCelularSPVO.setNumBO(Integer.parseInt(celula.getStringCellValue()));
 						
-					case 4:
-						dadosCelularSPVO.setDataBoEmitido(dataUtil.stringToDate(celula.getStringCellValue()));
-					
-					case 5:
+					case 2:
+						dadosCelularSPVO.setDataBoEmitido(dataUtil.stringToDatehour(celula.getStringCellValue()));
+						
+					case 3:
 						dadosCelularSPVO.setDataOcorrencia(dataUtil.stringToDate(celula.getStringCellValue()));
+						
+					case 4:
+						dadosCelularSPVO.setPeriodoOcorrencia(celula.getStringCellValue());
+						
+					case 5:
+						dadosCelularSPVO.setDataComunicacao(dataUtil.stringToDatehour(celula.getStringCellValue()));
 					
 					case 6:
-						dadosCelularSPVO.setPeriodoOcorrencia(celula.getStringCellValue());
-					
-					case 10:
+						dadosCelularSPVO.setDataHoraElaboracao(dataUtil.stringToDatehour(celula.getStringCellValue()));
+						
+					case 7:
 						dadosCelularSPVO.setFlagrante(celula.getStringCellValue());
-					
-					case 12:
+						
+					case 8:
 						dadosCelularSPVO.setLogradouro(celula.getStringCellValue());
 					
-					case 13:
+					case 9:
 						dadosCelularSPVO.setNumero(celula.getStringCellValue());
 					
-					case 14:
+					case 10:
 						dadosCelularSPVO.setBairro(celula.getStringCellValue());
 						
-					case 15:
+					case 11:
 						dadosCelularSPVO.setCidade(celula.getStringCellValue());
-					
-					case 16:
+						
+					case 12:
 						dadosCelularSPVO.setLatitude(Double.parseDouble(celula.getStringCellValue()));
 					
-					case 17:
+					case 13:
 						dadosCelularSPVO.setLongitude(Double.parseDouble(celula.getStringCellValue()));
-					
-					case 18:
+						
+					case 14:
 						dadosCelularSPVO.setDescricaoLocal(celula.getStringCellValue());
 						
-					case 19:
+					case 15:
+						dadosCelularSPVO.setSolucao(celula.getStringCellValue());
+						
+					case 16:
 						dadosCelularSPVO.setDelegaciaNome(celula.getStringCellValue());	
 						
-					case 20:
+					case 17:
 						dadosCelularSPVO.setDelegaciaCircunscricao(celula.getStringCellValue());
-					
-					case 22:
-						dadosCelularSPVO.setRubrica(celula.getStringCellValue());	
+						
+					case 18:
+						dadosCelularSPVO.setEspecie(celula.getStringCellValue());
 					}
+					
 					dadosRouboFurtoCelularService.salvar(dadosCelularSPVO);
                 }
             }

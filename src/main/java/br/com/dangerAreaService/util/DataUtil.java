@@ -17,4 +17,15 @@ public class DataUtil {
 		return data;
 	}
 	
+	public Date stringToDatehour(String dataStr) {
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Date data = null;
+		try {
+			data = new java.sql.Date(format.parse(dataStr).getTime());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+	
 }
