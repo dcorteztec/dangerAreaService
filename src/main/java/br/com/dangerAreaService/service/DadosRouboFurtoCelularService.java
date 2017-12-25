@@ -16,8 +16,8 @@ public class DadosRouboFurtoCelularService implements IDadosRouboFurtoCelularSer
     private IFurtoRouboCelularRepository repository;
 	
 	@Override
-	public void salvar(DadosCelularSPVO dadosCelularSPVO) {
-		repository.save(dadosCelularSPVO);
+	public void salvar(List<DadosCelularSPVO> listDados) {
+		repository.save(listDados);
 	}
 
 	@Override

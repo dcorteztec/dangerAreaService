@@ -6,7 +6,7 @@ import br.com.dangerAreaService.vo.DadosCelularSPVO;
 
 public interface IDadosRouboFurtoCelularService {
 
-	public void salvar(DadosCelularSPVO dadosCelularSPVO);
+	public void salvar(List<DadosCelularSPVO> listDados);
 	 
     public List<DadosCelularSPVO> findAll();
  
