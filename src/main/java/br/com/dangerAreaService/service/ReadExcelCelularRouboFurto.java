@@ -33,7 +33,7 @@ public class ReadExcelCelularRouboFurto {
 	private DadosRouboFurtoCelularService dadosRouboFurtoCelularService;
 	
 
-	public List<DadosCelularSPVO> readExcelFurto() {
+	public List<DadosCelularSPVO> readExcelFurto() throws IOException {
 		List<DadosCelularSPVO> dados = new ArrayList<DadosCelularSPVO>();
 		 HSSFWorkbook workbook = null;
 		try {
@@ -144,8 +144,8 @@ public class ReadExcelCelularRouboFurto {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
-    	workbook.close();
-  	}
+			workbook.close();
+  	    }
 		return dados;
 	}
 }
