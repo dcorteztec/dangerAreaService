@@ -21,11 +21,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
+import br.com.dangerAreaService.ControllerLogger;
 import br.com.dangerAreaService.util.Constantes;
 import br.com.dangerAreaService.vo.DadosCelularSPVO;
 
 @Service
-public class ReadExcelCelularRouboFurto {
+public class ReadExcelCelularRouboFurto extends ControllerLogger{
 
 	
 
@@ -133,16 +134,19 @@ public class ReadExcelCelularRouboFurto {
                 }
                 
             }
-                if(linha.getRowNum()>0)
-                dados.add(dadosCelularSPVO);
+                if(linha.getRowNum()>0) {
+                	logger.info("add objeto on list");
+                	dados.add(dadosCelularSPVO);
+                }
                 
             }
+            logger.info("save list on BD");
             dadosRouboFurtoCelularService.salvar(dados);
 			
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			logger.error("This is an error readExcel");
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error("This is an error readExcel");
 		}finally {
 			workbook.close();
   	    }
