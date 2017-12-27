@@ -35,6 +35,7 @@ public class ReadExcelCelularRouboFurto {
 
 	public List<DadosCelularSPVO> readExcelFurto() {
 		List<DadosCelularSPVO> dados = new ArrayList<DadosCelularSPVO>();
+		 HSSFWorkbook workbook = null;
 		try {
 			
 			File file = new ClassPathResource(Constantes.DADOS_FURTOS_CELULAR).getFile();
@@ -44,13 +45,11 @@ public class ReadExcelCelularRouboFurto {
 			InputStream input = new BufferedInputStream(excelFile);
 
             POIFSFileSystem fileSystem = new POIFSFileSystem(input);
-            HSSFWorkbook workbook = new HSSFWorkbook(fileSystem);
+            workbook = new HSSFWorkbook(fileSystem);
             HSSFSheet sheet = workbook.getSheetAt(0);
             
             Iterator<Row> linhas = sheet.rowIterator();
            
-           
-			
             while(linhas.hasNext()){
                 HSSFRow linha = (HSSFRow) linhas.next();
                 
@@ -139,12 +138,14 @@ public class ReadExcelCelularRouboFurto {
                 
             }
             dadosRouboFurtoCelularService.salvar(dados);
-			workbook.close();
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}finally {
+    	workbook.close();
+  	}
 		return dados;
 	}
 }
