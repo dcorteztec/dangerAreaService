@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 public abstract class ControllerLogger {
 
-	public static Logger logger = LogManager.getLogger();
+	public static final Logger logger = LogManager.getLogger();
 	
 	
 }

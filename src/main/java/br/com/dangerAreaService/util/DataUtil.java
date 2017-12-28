@@ -4,7 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DataUtil {
+import br.com.dangerAreaService.ControllerLogger;
+
+public class DataUtil extends ControllerLogger{
 
 	public Date stringToDate(String dataStr) {
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -12,7 +14,7 @@ public class DataUtil {
 		try {
 			data = new java.sql.Date(format.parse(dataStr).getTime());
 		} catch (ParseException e) {
-			e.printStackTrace();
+			logger.error("error stringToDate");
 		}
 		return data;
 	}
@@ -23,7 +25,7 @@ public class DataUtil {
 		try {
 			data = new java.sql.Date(format.parse(dataStr).getTime());
 		} catch (ParseException e) {
-			e.printStackTrace();
+			logger.error("error stringToDatehour");
 		}
 		return data;
 	}

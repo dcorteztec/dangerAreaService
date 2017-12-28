@@ -28,8 +28,6 @@ import br.com.dangerAreaService.vo.DadosCelularSPVO;
 @Service
 public class ReadExcelCelularRouboFurto extends ControllerLogger{
 
-	
-
 	@Autowired
 	private DadosRouboFurtoCelularService dadosRouboFurtoCelularService;
 	
