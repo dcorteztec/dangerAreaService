@@ -49,4 +49,14 @@ public class furtoController extends ControllerLogger{
 		return ret;
 	}
 	
+	@RequestMapping(value="getdadosByNumBo/{bo}",produces= MediaType.APPLICATION_JSON_VALUE)
+	public DadosCelularSPVO getdadosByNumBo(@PathVariable("bo") final int bo){
+		DadosCelularSPVO dados = new DadosCelularSPVO();
+		try {
+			ret = dadosRouboFurtoCelularService.findByBo(bo);
+		} catch (Exception e) {
+			 logger.error("This is an error getFurtoByBo()");
+		}
+		
+	}
 }
