@@ -54,10 +54,10 @@ public class furtoController extends ControllerLogger{
 	public DadosCelularSPVO getdadosByNumBo(@PathVariable("bo") final int bo){
 		DadosCelularSPVO dados = new DadosCelularSPVO();
 		try {
-			ret = dadosRouboFurtoCelularService.findByBo(bo);
+			dados = dadosRouboFurtoCelularService.findByBo(bo);
 		} catch (Exception e) {
 			 logger.error("This is an error getFurtoByBo()");
 		}
-		
+		return dados;
 	}
 }
