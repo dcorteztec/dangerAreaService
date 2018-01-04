@@ -34,6 +34,11 @@ public class DadosRouboFurtoCelularService implements IDadosRouboFurtoCelularSer
 	public DadosCelularSPVO findById(Long id) {
 		return repository.findOne(id);
 	}
+	
+	@Override
+	public DadosCelularSPVO findByBo(int bo) {
+		return repository.findByBo(bo);
+	}
 
 	@Override
 	public void delete(Long id) {

@@ -15,4 +15,6 @@ public interface IDadosRouboFurtoCelularService {
     public DadosCelularSPVO findById(Long id);
  
     public void delete(Long id);
+	
+	  public DadosCelularSPVO findByBo(int bo); 
 }
