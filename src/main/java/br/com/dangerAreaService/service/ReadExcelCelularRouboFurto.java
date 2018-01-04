@@ -33,7 +33,7 @@ public class ReadExcelCelularRouboFurto extends ControllerLogger{
 	
 
 	public List<DadosCelularSPVO> readExcelFurto() throws IOException {
-		List<DadosCelularSPVO> dados = new ArrayList<DadosCelularSPVO>();
+		List<DadosCelularSPVO> dados = new ArrayList<>();
 		 HSSFWorkbook workbook = null;
 		try {
 			
