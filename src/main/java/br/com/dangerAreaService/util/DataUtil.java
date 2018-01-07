@@ -1,5 +1,6 @@
 package br.com.dangerAreaService.util;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,6 +29,12 @@ public class DataUtil extends ControllerLogger{
 			logger.error("error stringToDatehour");
 		}
 		return data;
+	}
+
+	public String stringToDatehour(Date dataOcorrencia) {
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");		
+		String reportDate = df.format(dataOcorrencia);
+		return reportDate;
 	}
 	
 }

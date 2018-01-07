@@ -6,16 +6,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.dangerAreaService.ControllerLogger;
 import br.com.dangerAreaService.service.DadosRouboFurtoCelularService;
 import br.com.dangerAreaService.service.ReadExcelCelularRouboFurto;
 import br.com.dangerAreaService.util.Constantes;
 import br.com.dangerAreaService.vo.DadosCelularSPVO;
+import br.com.dangerAreaService.vo.helpervo.DadosMapHelperVO;
+import io.swagger.annotations.ApiOperation;
 
 
 @RestController
@@ -27,6 +29,7 @@ public class furtoController extends ControllerLogger{
 	@Autowired
 	private DadosRouboFurtoCelularService dadosRouboFurtoCelularService;
 	
+	@ApiOperation(value = "gerarBase", notes="Gera a base a partir de um excel, já previamente armezenado",nickname = "gerarBase")
 	@RequestMapping(value = "/gerarBase", method = RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
 	public List<DadosCelularSPVO> gerandoBase() {
 		 List<DadosCelularSPVO> ret = new ArrayList<>();
@@ -50,7 +53,18 @@ public class furtoController extends ControllerLogger{
 		return ret;
 	}
 	
-	@RequestMapping(value="getdadosByNumBo/{bo}",produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/listBaseMap", method = RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
+	public List<DadosMapHelperVO> listBaseMap() {
+		 List<DadosMapHelperVO> ret = new ArrayList<>();
+		try {
+			ret = dadosRouboFurtoCelularService.preparaDadosMap(dadosRouboFurtoCelularService.findAll());
+		} catch (Exception e) {
+			 logger.error("This is an error listBase()");
+		}
+		return ret;
+	}
+	
+	@RequestMapping(value="getdadosByNumBo/{bo}", method = RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
 	public DadosCelularSPVO getdadosByNumBo(@PathVariable("bo") final int bo){
 		DadosCelularSPVO dados = new DadosCelularSPVO();
 		try {
