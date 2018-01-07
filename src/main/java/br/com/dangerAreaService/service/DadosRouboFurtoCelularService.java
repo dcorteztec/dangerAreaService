@@ -54,13 +54,13 @@ public class DadosRouboFurtoCelularService implements IDadosRouboFurtoCelularSer
 		 DataUtil dataUtil = new DataUtil();
 		 findAll.forEach(item->{
 				DadosMapHelperVO dados = new DadosMapHelperVO();
-				dados.setBairro(item.getBairro());
-				dados.setCidade(item.getCidade());
-				dados.setDataOcorrencia(dataUtil.stringToDatehour(item.getDataOcorrencia()));
-				dados.setLatitude(item.getLatitude());
-				dados.setLongitude(item.getLongitude());
-				dados.setNumero(item.getNumero());
-				dados.setUf(item.getUf());
+				dados.setBairroForMap(item.getBairro());
+				dados.setCidadeForMap(item.getCidade());
+				dados.setDataOcorrenciaForMap(dataUtil.stringToDatehour(item.getDataOcorrencia()));
+				dados.setLatitudeForMap(item.getLatitude());
+				dados.setLongitudeForMap(item.getLongitude());
+				dados.setNumeroForMap(item.getNumero());
+				dados.setUfForMap(item.getUf());
 				ret.add(dados);
 			});		 
 		return ret;

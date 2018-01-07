@@ -2,66 +2,83 @@ package br.com.dangerAreaService.vo.helpervo;
 
 public class DadosMapHelperVO {
 
-	private String dataOcorrencia;
-	private String logradouro;
-	private String numero;
-	private String bairro;
-	private String cidade;
-	private String uf;
-	private Double latitude;
-	private Double longitude;
+	private String dataOcorrenciaForMap;
+	private String logradouroForMap;
+	private String numeroForMap;
+	private String bairroForMap;
+	private String cidadeForMap;
+	private String ufForMap;
+	private Double latitudeForMap;
+	private Double longitudeForMap;
 	
 	public DadosMapHelperVO() {
 		super();
 	}
-	public String getDataOcorrencia() {
-		return dataOcorrencia;
+
+	public String getDataOcorrenciaForMap() {
+		return dataOcorrenciaForMap;
 	}
-	public void setDataOcorrencia(String dataOcorrencia) {
-		this.dataOcorrencia = dataOcorrencia;
+
+	public void setDataOcorrenciaForMap(String dataOcorrenciaForMap) {
+		this.dataOcorrenciaForMap = dataOcorrenciaForMap;
 	}
-	public String getLogradouro() {
-		return logradouro;
+
+	public String getLogradouroForMap() {
+		return logradouroForMap;
 	}
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+
+	public void setLogradouroForMap(String logradouroForMap) {
+		this.logradouroForMap = logradouroForMap;
 	}
-	public String getNumero() {
-		return numero;
+
+	public String getNumeroForMap() {
+		return numeroForMap;
 	}
-	public void setNumero(String numero) {
-		this.numero = numero;
+
+	public void setNumeroForMap(String numeroForMap) {
+		this.numeroForMap = numeroForMap;
 	}
-	public String getBairro() {
-		return bairro;
+
+	public String getBairroForMap() {
+		return bairroForMap;
 	}
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+
+	public void setBairroForMap(String bairroForMap) {
+		this.bairroForMap = bairroForMap;
 	}
-	public String getCidade() {
-		return cidade;
+
+	public String getCidadeForMap() {
+		return cidadeForMap;
 	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+
+	public void setCidadeForMap(String cidadeForMap) {
+		this.cidadeForMap = cidadeForMap;
 	}
-	public String getUf() {
-		return uf;
+
+	public String getUfForMap() {
+		return ufForMap;
 	}
-	public void setUf(String uf) {
-		this.uf = uf;
+
+	public void setUfForMap(String ufForMap) {
+		this.ufForMap = ufForMap;
 	}
-	public Double getLatitude() {
-		return latitude;
+
+	public Double getLatitudeForMap() {
+		return latitudeForMap;
 	}
-	public void setLatitude(Double latitude) {
-		this.latitude = latitude;
+
+	public void setLatitudeForMap(Double latitudeForMap) {
+		this.latitudeForMap = latitudeForMap;
 	}
-	public Double getLongitude() {
-		return longitude;
+
+	public Double getLongitudeForMap() {
+		return longitudeForMap;
 	}
-	public void setLongitude(Double longitude) {
-		this.longitude = longitude;
+
+	public void setLongitudeForMap(Double longitudeForMap) {
+		this.longitudeForMap = longitudeForMap;
 	}
+	
 	
 	
 }
