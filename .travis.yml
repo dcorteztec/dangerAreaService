@@ -19,7 +19,7 @@ after_success:
 deploy:
   provider: heroku
   app: dangerareaservice
-  api_key: 359ac68a-bb1c-4fc8-87fe-48575d6143b6
+  api_key: $HEROKU_TOKEN
   on:
      repo: dcorteztec/dangerAreaService
 cache:
