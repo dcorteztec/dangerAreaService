@@ -9,7 +9,7 @@ addons:
   sonarcloud:
     organization: "dcorteztec-github"
     token:
-      secure: "bc1962b3b1859f0a0437cabce700cdf7e477299a"
+      secure: $SONAR_TOKEN
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 - mvn package
