@@ -3,7 +3,6 @@ jdk:
 - oraclejdk8
 before_install:
 - chmod +x mvnw
-- wget -qO - --header="X-Papertrail-Token: MOdvRs5rCaioN5uPUlX" \ https://papertrailapp.com/destinations/7310172/setup.sh | sudo bash
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 addons:
