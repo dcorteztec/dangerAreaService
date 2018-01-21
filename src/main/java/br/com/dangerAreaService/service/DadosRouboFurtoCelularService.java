@@ -60,7 +60,8 @@ public class DadosRouboFurtoCelularService implements IDadosRouboFurtoCelularSer
 				dados.setLatitudeForMap(item.getLatitude());
 				dados.setLongitudeForMap(item.getLongitude());
 				dados.setNumeroForMap(item.getNumero());
-				dados.setUfForMap(item.getUf());
+				//dados.setUfForMap(item.getUf());
+				dados.setLogradouroForMap(item.getLogradouro());
 				ret.add(dados);
 			});		 
 		return ret;

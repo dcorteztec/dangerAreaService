@@ -7,7 +7,7 @@ public class DadosMapHelperVO {
 	private String numeroForMap;
 	private String bairroForMap;
 	private String cidadeForMap;
-	private String ufForMap;
+	//private String ufForMap;
 	private Double latitudeForMap;
 	private Double longitudeForMap;
 	
@@ -55,13 +55,13 @@ public class DadosMapHelperVO {
 		this.cidadeForMap = cidadeForMap;
 	}
 
-	public String getUfForMap() {
-		return ufForMap;
-	}
-
-	public void setUfForMap(String ufForMap) {
-		this.ufForMap = ufForMap;
-	}
+//	public String getUfForMap() {
+//		return ufForMap;
+//	}
+//
+//	public void setUfForMap(String ufForMap) {
+//		this.ufForMap = ufForMap;
+//	}
 
 	public Double getLatitudeForMap() {
 		return latitudeForMap;

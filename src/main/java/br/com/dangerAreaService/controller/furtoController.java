@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(Constantes.ESTATISTICA_FURTO_CELULAR)
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class furtoController extends ControllerLogger{
 
 	@Autowired
